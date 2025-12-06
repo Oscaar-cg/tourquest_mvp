@@ -1,17 +1,12 @@
-// Main entry point of the app.
-// This file initializes Hive and launches the HomePage.
-// Clean and simple for the MVP.
-
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'storage/hive_storage.dart';
-import 'pages/home_page.dart';
+import 'ui/main_navigation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Hive (local storage)
   await Hive.initFlutter();
   await HiveStorage.init();
 
@@ -25,12 +20,12 @@ class TourQuestApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'TourQuest',
-      debugShowCheckedModeBanner: false, // Cleaner look
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,        // SUU color vibe
-        useMaterial3: true,                // Modern UI
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
-      home: const HomePage(),             // First screen
+      home: const MainNavigation(),
     );
   }
 }
